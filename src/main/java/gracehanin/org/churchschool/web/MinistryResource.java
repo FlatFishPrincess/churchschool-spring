@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Tour Rating Controller
+ * Ministry Resource 
  *
  * Created by Mary Ellen Bowman
  */

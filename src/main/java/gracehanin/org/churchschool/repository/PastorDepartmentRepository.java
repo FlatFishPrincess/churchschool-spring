@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import gracehanin.org.churchschool.model.PastorDepartment;
 
 @Repository
-public interface PastorDepartmentRepository extends JpaRepository<PastorDepartment,String> {
+public interface PastorDepartmentRepository extends JpaRepository<PastorDepartment,Long> {
 
 }

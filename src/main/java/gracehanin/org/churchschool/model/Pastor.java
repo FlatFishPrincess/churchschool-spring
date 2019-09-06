@@ -13,7 +13,7 @@ public class Pastor {
   
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private String id;
+  private Long id;
 
   @Column
   private String personId;
@@ -21,11 +21,11 @@ public class Pastor {
   @OneToMany(mappedBy = "pastor")
   private Set<PastorDepartment> pastorDepartments = new HashSet<>();
 
-  public String getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

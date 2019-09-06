@@ -10,7 +10,7 @@ public class Ministry {
   
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private String id;
+  private Long id;
 
   @Column
   private String name;
@@ -18,11 +18,11 @@ public class Ministry {
   @OneToMany(mappedBy = "ministry")
   private Set<Department> departments = new HashSet<>();
 
-  public String getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

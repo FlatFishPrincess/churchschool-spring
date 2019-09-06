@@ -8,7 +8,7 @@ public class PastorDepartment {
   
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private String id;
+  private Long id;
 
   @Column
   private Date startDate;
@@ -25,11 +25,11 @@ public class PastorDepartment {
   @ManyToOne
   private Term term;
 
-  public String getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

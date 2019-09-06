@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import gracehanin.org.churchschool.model.Term;
 
 @Repository
-public interface TermRepository extends JpaRepository<Term,String> {
+public interface TermRepository extends JpaRepository<Term,Long> {
 
 }

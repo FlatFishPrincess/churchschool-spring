@@ -14,8 +14,8 @@ import gracehanin.org.churchschool.service.mapper.MinistryMapper;
 public class MinistryService {
 
     private MinistryRepository ministryRepository;
-    private final MinistryMapper ministryMapper;
-
+    private MinistryMapper ministryMapper;
+    
     public MinistryService(MinistryRepository ministryRepository, MinistryMapper ministryMapper){
         this.ministryRepository = ministryRepository;
         this.ministryMapper = ministryMapper;

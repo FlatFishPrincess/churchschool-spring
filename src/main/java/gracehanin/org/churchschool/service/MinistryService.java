@@ -1,5 +1,7 @@
 package gracehanin.org.churchschool.service;
 
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -33,6 +35,12 @@ public class MinistryService {
         Ministry ministry = ministryMapper.toEntity(ministryDTO);
         ministry = ministryRepository.save(ministry);
         return ministryMapper.toDto(ministry);
+    }
+
+    public Optional<MinistryDTO> findOne(Long id) {
+        System.out.println("---------Finding one ministry by id triggered---------");
+        Optional<MinistryDTO> ministryDTO = ministryRepository.findById(id).map(min -> ministryMapper.toDto(min));
+        return ministryDTO;
     }
 
 }

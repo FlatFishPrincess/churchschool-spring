@@ -5,15 +5,15 @@ package gracehanin.org.churchschool.service.dto;
  */
 public class MinistryDTO {
 
-  private long Id;
+  private long id;
   private String name;
 
   public long getId() {
-    return Id;
+    return id;
   }
 
   public void setId(long id) {
-    Id = id;
+    this.id = id;
   }
 
   public String getName() {
@@ -26,7 +26,7 @@ public class MinistryDTO {
 
   @Override
   public String toString() {
-    return "MinistryDTO [Id=" + Id + ", name=" + name + "]";
+    return "MinistryDTO [id=" + id + ", name=" + name + "]";
   }
 
 }

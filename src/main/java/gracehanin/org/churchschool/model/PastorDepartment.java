@@ -19,10 +19,10 @@ public class PastorDepartment {
   @ManyToOne
   private Department department;
 
-  @ManyToOne
+  @ManyToOne(cascade = {CascadeType.ALL}) // allow pastor department to be saved before pastor created
   private Pastor pastor;
   
-  @ManyToOne
+  @ManyToOne(cascade = {CascadeType.ALL}) // allow pastor department to be saved before term created
   private Term term;
 
   public Long getId() {

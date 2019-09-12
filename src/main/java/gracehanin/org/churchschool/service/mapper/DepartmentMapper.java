@@ -11,11 +11,11 @@ public interface DepartmentMapper extends EntityMapper<DepartmentDTO, Department
 
   @Mapping(source = "ministry.id", target = "ministryId" )
   @Mapping(source = "ministry.name", target = "ministryName" )
-  // @Mapping(source = "pastorDepartments", target = "pastorDepartmentList" )
+  @Mapping(source = "pastorDepartments", target = "pastorDepartmentList" )
   DepartmentDTO toDto(Department department);
 
   @Mapping(source = "ministryId", target = "ministry.id")
   @Mapping(source = "ministryName", target = "ministry.name")
-  // @Mapping(target = "pastorDepartmentList", ignore = true)
+  @Mapping(target = "pastorDepartments", ignore = true)
   Department toEntity(DepartmentDTO departmentDTO);
 }

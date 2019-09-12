@@ -1,5 +1,8 @@
 package gracehanin.org.churchschool.service.dto;
 
+import java.util.Set;
+
+import gracehanin.org.churchschool.model.PastorDepartment;
 import gracehanin.org.churchschool.model.enumeration.Room;
 
 /**
@@ -7,18 +10,19 @@ import gracehanin.org.churchschool.model.enumeration.Room;
  */
 public class DepartmentDTO {
 
-  private long Id;
+  private long id;
   private String name;
   private Room room;
   private Long ministryId;
   private String ministryName;
+  private Set<PastorDepartment> pastorDepartmentList;
 
   public long getId() {
-    return Id;
+    return id;
   }
 
   public void setId(long id) {
-    Id = id;
+    this.id = id;
   }
 
   public String getName() {
@@ -53,11 +57,14 @@ public class DepartmentDTO {
     this.ministryName = ministryName;
   }
 
-  @Override
-  public String toString() {
-    return "DepartmentDTO [Id=" + Id + ", ministryId=" + ministryId + ", ministryName=" + ministryName + ", name="
-        + name + ", room=" + room + "]";
+  public Set<PastorDepartment> getPastorDepartmentList() {
+    return pastorDepartmentList;
   }
 
+  @Override
+  public String toString() {
+    return "DepartmentDTO [Id=" + id + ", ministryId=" + ministryId + ", ministryName=" + ministryName + ", name="
+        + name + ", room=" + room + "]";
+  }
   
 }

@@ -36,10 +36,9 @@ public class DepartmentService {
 
     public DepartmentDTO save(DepartmentDTO departmentDTO) {
         System.out.println("---------dept save all triggered---------");
-        log.error("save department, get dto: {}", departmentDTO);
+        log.info("save department, get dto: {}", departmentDTO);
         Department department = departmentMapper.toEntity(departmentDTO);
-        // System.out.println("department",department);
-        log.error("department to entity: {}", department);
+        log.info("department to entity: {}", department);
         department = departmentRepository.save(department);
         return departmentMapper.toDto(department);
     }

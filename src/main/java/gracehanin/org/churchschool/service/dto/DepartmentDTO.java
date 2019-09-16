@@ -15,7 +15,7 @@ public class DepartmentDTO {
   private Room room;
   private Long ministryId;
   private String ministryName;
-  private Set<PastorDepartment> pastorDepartmentList;
+  private Set<PastorDepartment> pastorDepartments;
 
   public long getId() {
     return id;
@@ -57,14 +57,19 @@ public class DepartmentDTO {
     this.ministryName = ministryName;
   }
 
-  public Set<PastorDepartment> getPastorDepartmentList() {
-    return pastorDepartmentList;
+  public Set<PastorDepartment> getPastorDepartments() {
+    return pastorDepartments;
+  }
+
+  public void setPastorDepartments(Set<PastorDepartment> pastorDepartments) {
+    this.pastorDepartments = pastorDepartments;
   }
 
   @Override
   public String toString() {
-    return "DepartmentDTO [Id=" + id + ", ministryId=" + ministryId + ", ministryName=" + ministryName + ", name="
-        + name + ", room=" + room + "]";
+    return "DepartmentDTO [id=" + id + ", ministryId=" + ministryId + ", ministryName=" + ministryName + ", name="
+        + name + ", pastorDepartments=" + pastorDepartments + ", room=" + room + "]";
   }
+
   
 }

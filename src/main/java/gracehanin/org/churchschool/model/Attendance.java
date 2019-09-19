@@ -8,22 +8,22 @@ import gracehanin.org.churchschool.model.enumeration.AttendanceType;
 
 @Entity
 public class Attendance {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-  
+
   @Column
   private Long entityId;
-  
+
   @Column
   private String entityType;
-  
+
   @Column
   private LocalDate attendanceDate;
 
-  @ManyToOne(cascade = {CascadeType.ALL})
-  private ClassTeacher classTeacher;
+  @ManyToOne(cascade = { CascadeType.ALL })
+  private TeacherDivision teacherDivision;
 
   private AttendanceType attendanceType;
 
@@ -59,12 +59,12 @@ public class Attendance {
     this.attendanceDate = attendanceDate;
   }
 
-  public ClassTeacher getClassTeacher() {
-    return classTeacher;
+  public TeacherDivision getClassTeacher() {
+    return teacherDivision;
   }
 
-  public void setClassTeacher(ClassTeacher classTeacher) {
-    this.classTeacher = classTeacher;
+  public void setClassTeacher(TeacherDivision teacherDivision) {
+    this.teacherDivision = teacherDivision;
   }
 
   public AttendanceType getAttendanceType() {
@@ -77,8 +77,8 @@ public class Attendance {
 
   @Override
   public String toString() {
-    return "Attendance [attendanceDate=" + attendanceDate + ", attendanceType=" + attendanceType + ", classTeacher="
-        + classTeacher + ", entityId=" + entityId + ", entityType=" + entityType + ", id=" + id + "]";
+    return "Attendance [attendanceDate=" + attendanceDate + ", attendanceType=" + attendanceType + ", teacherDivision="
+        + teacherDivision + ", entityId=" + entityId + ", entityType=" + entityType + ", id=" + id + "]";
   }
 
 }

@@ -2,12 +2,11 @@ package gracehanin.org.churchschool.model;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.*;
 
 @Entity
-public class CMClass {
-  
+public class Division {
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
@@ -15,8 +14,8 @@ public class CMClass {
   @Column
   private String name;
 
-  @OneToMany(mappedBy = "cmClass")
-  private Set<ClassTeacher> classTeachers = new HashSet<>();
+  @OneToMany(mappedBy = "division")
+  private Set<TeacherDivision> teacherDivisions = new HashSet<>();
 
   public Long getId() {
     return id;
@@ -34,17 +33,17 @@ public class CMClass {
     this.name = name;
   }
 
-  public Set<ClassTeacher> getClassTeachers() {
-    return classTeachers;
+  public Set<TeacherDivision> getClassTeachers() {
+    return teacherDivisions;
   }
 
-  public void setClassTeachers(Set<ClassTeacher> classTeachers) {
-    this.classTeachers = classTeachers;
+  public void setClassTeachers(Set<TeacherDivision> teacherDivisions) {
+    this.teacherDivisions = teacherDivisions;
   }
 
   @Override
   public String toString() {
-    return "Class [classTeachers=" + classTeachers + ", id=" + id + ", name=" + name + "]";
+    return "Class [teacherDivisions=" + teacherDivisions + ", id=" + id + ", name=" + name + "]";
   }
 
 }

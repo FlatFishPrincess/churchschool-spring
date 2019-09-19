@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 public class Teacher {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
@@ -15,7 +15,7 @@ public class Teacher {
   private String personId;
 
   @OneToMany(mappedBy = "teacher")
-  private Set<ClassTeacher> classTeachers = new HashSet<>();
+  private Set<TeacherDivision> teacherDivision = new HashSet<>();
 
   public Long getId() {
     return id;
@@ -33,17 +33,17 @@ public class Teacher {
     this.personId = personId;
   }
 
-  public Set<ClassTeacher> getClassTeachers() {
-    return classTeachers;
+  public Set<TeacherDivision> getClassTeachers() {
+    return teacherDivision;
   }
 
-  public void setClassTeachers(Set<ClassTeacher> classTeachers) {
-    this.classTeachers = classTeachers;
+  public void setClassTeachers(Set<TeacherDivision> teacherDivision) {
+    this.teacherDivision = teacherDivision;
   }
 
   @Override
   public String toString() {
-    return "Teacher [classTeachers=" + classTeachers + ", id=" + id + ", personId=" + personId + "]";
+    return "Teacher [teacherDivision=" + teacherDivision + ", id=" + id + ", personId=" + personId + "]";
   }
 
 }

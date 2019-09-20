@@ -18,8 +18,8 @@ public class TeacherAttendance {
 
   private LocalDate attendanceDate;
 
-  @ManyToOne
-  private TeacherDivision teacherDivision;
+  // @ManyToOne
+  // private TeacherDivision teacherDivision;
 
   public Long getId() {
     return id;
@@ -53,18 +53,20 @@ public class TeacherAttendance {
     this.attendanceDate = attendanceDate;
   }
 
-  public TeacherDivision getTeacherDivision() {
-    return teacherDivision;
-  }
+  // public TeacherDivision getTeacherDivision() {
+  // return teacherDivision;
+  // }
 
-  public void setTeacherDivision(TeacherDivision teacherDivision) {
-    this.teacherDivision = teacherDivision;
-  }
+  // public void setTeacherDivision(TeacherDivision teacherDivision) {
+  // this.teacherDivision = teacherDivision;
+  // }
 
-  @Override
-  public String toString() {
-    return "TeacherAttendance [attendanceDate=" + attendanceDate + ", attendanceType=" + attendanceType
-        + ", description=" + description + ", id=" + id + ", teacherDivision=" + teacherDivision + "]";
-  }
+  // @Override
+  // public String toString() {
+  // return "TeacherAttendance [attendanceDate=" + attendanceDate + ",
+  // attendanceType=" + attendanceType
+  // + ", description=" + description + ", id=" + id + ", teacherDivision=" +
+  // teacherDivision + "]";
+  // }
 
 }

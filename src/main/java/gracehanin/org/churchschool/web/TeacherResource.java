@@ -21,7 +21,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import gracehanin.org.churchschool.service.TeacherService;
 import gracehanin.org.churchschool.service.dto.TeacherDTO;
-import gracehanin.org.churchschool.web.vm.TeacherVM;
+import gracehanin.org.churchschool.web.vm.AllTeacherListVM;
 
 /**
  * Teacher Resource
@@ -53,8 +53,9 @@ public class TeacherResource {
 
   // @PostMapping("/teachers")
   // @ResponseStatus(HttpStatus.CREATED)
-  // public TeacherDTO addTeacher(@RequestBody TeacherVM teacherVM) {
-  // TeacherDTO result = teacherService.save(teacherVM);
+  // public TeacherDTO addTeacher(@RequestBody AllTeacherListVM allTeacherListVM)
+  // {
+  // TeacherDTO result = teacherService.save(allTeacherListVM);
   // return result;
   // }
 
@@ -70,9 +71,9 @@ public class TeacherResource {
   // verifyDepartmentId(id);
   // teacherDto.setId(id);
   // // FIXME: ugly code@@
-  // TeacherVM teacherVM = new TeacherVM();
-  // teacherVM.setDepartmentId(id);
-  // TeacherDTO savedDto = teacherService.save(teacherVM);
+  // AllTeacherListVM allTeacherListVM = new AllTeacherListVM();
+  // allTeacherListVM.setDepartmentId(id);
+  // TeacherDTO savedDto = teacherService.save(allTeacherListVM);
   // return savedDto;
   // }
 

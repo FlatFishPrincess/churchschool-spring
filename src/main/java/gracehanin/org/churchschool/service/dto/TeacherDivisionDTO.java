@@ -11,7 +11,7 @@ public class TeacherDivisionDTO {
 
   private Long id;
 
-  private String personId;
+  private Long teacherId;
 
   private TeacherType teacherType;
 
@@ -32,12 +32,12 @@ public class TeacherDivisionDTO {
     this.id = id;
   }
 
-  public String getPersonId() {
-    return personId;
+  public Long getTeacherId() {
+    return teacherId;
   }
 
-  public void setPersonId(String personId) {
-    this.personId = personId;
+  public void setTeacherId(Long teacherId) {
+    this.teacherId = teacherId;
   }
 
   public TeacherType getTeacherType() {
@@ -82,8 +82,8 @@ public class TeacherDivisionDTO {
 
   @Override
   public String toString() {
-    return "TeacherDivisionDTO [divisionId=" + divisionId + ", endDate=" + endDate + ", id=" + id + ", personId="
-        + personId + ", startDate=" + startDate + ", teacherType=" + teacherType + ", termId=" + "]";
+    return "TeacherDivisionDTO [divisionId=" + divisionId + ", endDate=" + endDate + ", id=" + id + ", teacherId="
+        + teacherId + ", startDate=" + startDate + ", teacherType=" + teacherType + ", termId=" + "]";
   }
 
 }

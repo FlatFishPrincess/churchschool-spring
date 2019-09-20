@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.Set;
 import javax.persistence.*;
 
+import org.springframework.lang.Nullable;
+
 import gracehanin.org.churchschool.model.enumeration.TeacherType;
 
 @Entity
@@ -29,6 +31,7 @@ public class TeacherDivision {
 
   private LocalDate startDate;
 
+  @Nullable
   private LocalDate endDate;
 
   public Long getId() {

@@ -14,6 +14,9 @@ public class Division {
   @Column
   private String name;
 
+  @Column
+  private String description;
+
   @OneToMany(mappedBy = "division")
   private Set<TeacherDivision> teacherDivisions = new HashSet<>();
 
@@ -33,17 +36,26 @@ public class Division {
     this.name = name;
   }
 
-  public Set<TeacherDivision> getClassTeachers() {
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Set<TeacherDivision> getTeacherDivisions() {
     return teacherDivisions;
   }
 
-  public void setClassTeachers(Set<TeacherDivision> teacherDivisions) {
+  public void setTeacherDivisions(Set<TeacherDivision> teacherDivisions) {
     this.teacherDivisions = teacherDivisions;
   }
 
   @Override
   public String toString() {
-    return "Class [teacherDivisions=" + teacherDivisions + ", id=" + id + ", name=" + name + "]";
+    return "Division [description=" + description + ", id=" + id + ", name=" + name + ", teacherDivisions="
+        + teacherDivisions + "]";
   }
 
 }

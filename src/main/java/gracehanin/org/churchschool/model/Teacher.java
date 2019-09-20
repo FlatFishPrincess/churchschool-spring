@@ -15,7 +15,7 @@ public class Teacher {
   private String personId;
 
   @OneToMany(mappedBy = "teacher")
-  private Set<TeacherDivision> teacherDivision = new HashSet<>();
+  private Set<TeacherDivision> teacherDivisions = new HashSet<>();
 
   public Long getId() {
     return id;
@@ -33,17 +33,29 @@ public class Teacher {
     this.personId = personId;
   }
 
-  public Set<TeacherDivision> getClassTeachers() {
-    return teacherDivision;
+  public Set<TeacherDivision> getTeacherDivisions() {
+    return teacherDivisions;
   }
 
-  public void setClassTeachers(Set<TeacherDivision> teacherDivision) {
-    this.teacherDivision = teacherDivision;
+  public void setTeacherDivisions(Set<TeacherDivision> teacherDivisions) {
+    this.teacherDivisions = teacherDivisions;
   }
 
-  @Override
-  public String toString() {
-    return "Teacher [teacherDivision=" + teacherDivision + ", id=" + id + ", personId=" + personId + "]";
+  public Teacher teacherDivisions(Set<TeacherDivision> teacherDivisions) {
+    this.teacherDivisions = teacherDivisions;
+    return this;
+  }
+
+  public Teacher addTeacherDivision(TeacherDivision teacherDivision) {
+    this.teacherDivisions.add(teacherDivision);
+    teacherDivision.setTeacher(this);
+    return this;
+  }
+
+  public Teacher removeTeacherDivision(TeacherDivision teacherDivision) {
+    this.teacherDivisions.remove(teacherDivision);
+    teacherDivision.setTeacher(null);
+    return this;
   }
 
 }

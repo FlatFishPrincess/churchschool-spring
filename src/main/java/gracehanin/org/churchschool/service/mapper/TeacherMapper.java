@@ -4,10 +4,11 @@ import gracehanin.org.churchschool.model.Teacher;
 import gracehanin.org.churchschool.service.dto.TeacherDTO;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+// import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = { TeacherDivisionMapper.class })
 public interface TeacherMapper extends EntityMapper<TeacherDTO, Teacher> {
+
   TeacherDTO toDto(Teacher teacher);
 
   Teacher toEntity(TeacherDTO teacherDTO);

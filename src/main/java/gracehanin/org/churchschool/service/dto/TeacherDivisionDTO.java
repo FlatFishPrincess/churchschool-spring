@@ -13,6 +13,8 @@ public class TeacherDivisionDTO {
 
   private Long teacherId;
 
+  private String personId;
+
   private TeacherType teacherType;
 
   private LocalDate startDate;
@@ -23,6 +25,8 @@ public class TeacherDivisionDTO {
   // private Long termId;
 
   private Long divisionId;
+
+  private String divisionName;
 
   public Long getId() {
     return id;
@@ -80,10 +84,26 @@ public class TeacherDivisionDTO {
     this.divisionId = divisionId;
   }
 
-  @Override
-  public String toString() {
-    return "TeacherDivisionDTO [divisionId=" + divisionId + ", endDate=" + endDate + ", id=" + id + ", teacherId="
-        + teacherId + ", startDate=" + startDate + ", teacherType=" + teacherType + ", termId=" + "]";
+  public String getPersonId() {
+    return personId;
   }
 
+  public void setPersonId(String personId) {
+    this.personId = personId;
+  }
+
+  public String getDivisionName() {
+    return divisionName;
+  }
+
+  public void setDivisionName(String divisionName) {
+    this.divisionName = divisionName;
+  }
+
+  @Override
+  public String toString() {
+    return "TeacherDivisionDTO [divisionId=" + divisionId + ", divisionName=" + divisionName + ", endDate=" + endDate
+        + ", id=" + id + ", personId=" + personId + ", startDate=" + startDate + ", teacherId=" + teacherId
+        + ", teacherType=" + teacherType + "]";
+  }
 }

@@ -10,12 +10,15 @@ import org.mapstruct.Mapping;
 public interface TeacherDivisionMapper extends EntityMapper<TeacherDivisionDTO, TeacherDivision> {
 
   @Mapping(source = "division.id", target = "divisionId")
+  @Mapping(source = "division.name", target = "divisionName")
   @Mapping(source = "teacher.id", target = "teacherId")
+  @Mapping(source = "teacher.personId", target = "personId")
   TeacherDivisionDTO toDto(TeacherDivision teacherDivision);
 
   @Mapping(source = "divisionId", target = "division.id")
+  @Mapping(source = "divisionName", target = "division.name")
   @Mapping(source = "teacherId", target = "teacher.id")
-
+  @Mapping(source = "personId", target = "teacher.personId")
   TeacherDivision toEntity(TeacherDivisionDTO teacherDivisionDTO);
 
 }

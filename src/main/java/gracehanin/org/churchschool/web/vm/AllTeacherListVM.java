@@ -16,6 +16,8 @@ public class AllTeacherListVM extends TeacherDivisionDTO {
 
   private String className;
 
+  private String personId;
+
   public AllTeacherListVM() {
     // Empty constructor needed for Jackson..?what?
   }
@@ -52,10 +54,18 @@ public class AllTeacherListVM extends TeacherDivisionDTO {
     this.className = className;
   }
 
+  public String getPersonId() {
+    return personId;
+  }
+
+  public void setPersonId(String personId) {
+    this.personId = personId;
+  }
+
   @Override
   public String toString() {
     return "AllTeacherListVM [className=" + className + ", departmentName=" + departmentName + ", ministryName="
-        + ministryName + ", numberOfStudents=" + numberOfStudents + "]";
+        + ministryName + ", numberOfStudents=" + numberOfStudents + ", personId=" + personId + "]";
   }
 
 }

@@ -1,9 +1,11 @@
 package gracehanin.org.churchschool.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -36,6 +38,25 @@ public class TeacherDivisionService {
     public Page<TeacherDivisionDTO> findAll(Pageable pageable) {
         System.out.println("---------find all triggered---------");
         return teacherDivisionRepository.findAll(pageable).map(teacherDivisionMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<TeacherDivisionDTO> findAllTest(Pageable pageable) {
+        System.out.println("---------find all teacher list view model triggered---------");
+        List<TeacherDivision> test = teacherDivisionRepository.findAll();
+        // List<TeacherDivisionDTO> test2 =
+
+        // Page<AllTeacherListVM> dtoPage = test.map(new Converter<TeacherDivisionDTO,
+        // AllTeacherListVM>() {
+        // @Override
+        // public AllTeacherListVM convert(TeacherDivisionDTO dto) {
+        // AllTeacherListVM vm = new AllTeacherListVM();
+        // // Conversion logic
+
+        // return vm;
+        // }
+        // });
+        return null;
     }
 
     public TeacherDivisionDTO save(TeacherDivisionDTO teacherDivisionDTO) {

@@ -28,6 +28,8 @@ public class TeacherDivisionDTO {
 
   private String divisionName;
 
+  private String departmentName;
+
   public Long getId() {
     return id;
   }
@@ -105,5 +107,13 @@ public class TeacherDivisionDTO {
     return "TeacherDivisionDTO [divisionId=" + divisionId + ", divisionName=" + divisionName + ", endDate=" + endDate
         + ", id=" + id + ", personId=" + personId + ", startDate=" + startDate + ", teacherId=" + teacherId
         + ", teacherType=" + teacherType + "]";
+  }
+
+  public String getDepartmentName() {
+    return departmentName;
+  }
+
+  public void setDepartmentName(String departmentName) {
+    this.departmentName = departmentName;
   }
 }

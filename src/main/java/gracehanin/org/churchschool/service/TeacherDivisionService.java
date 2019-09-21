@@ -2,16 +2,17 @@ package gracehanin.org.churchschool.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import gracehanin.org.churchschool.model.TeacherDivision;
+import gracehanin.org.churchschool.repository.DepartmentRepository;
 import gracehanin.org.churchschool.repository.TeacherDivisionRepository;
 import gracehanin.org.churchschool.repository.TeacherRepository;
 import gracehanin.org.churchschool.service.dto.TeacherDivisionDTO;
@@ -26,6 +27,7 @@ public class TeacherDivisionService {
     private TeacherDivisionRepository teacherDivisionRepository;
     private TeacherDivisionMapper teacherDivisionMapper;
     private TeacherRepository teacherRepository;
+    private DepartmentRepository departmentRepository;
 
     public TeacherDivisionService(TeacherDivisionRepository teacherDivisionRepository,
             TeacherDivisionMapper teacherDivisionMapper, TeacherRepository teacherRepository) {
@@ -44,18 +46,16 @@ public class TeacherDivisionService {
     public Page<TeacherDivisionDTO> findAllTest(Pageable pageable) {
         System.out.println("---------find all teacher list view model triggered---------");
         List<TeacherDivision> test = teacherDivisionRepository.findAll();
+        List<TeacherDivisionDTO> test2 = test.stream().map(teacherDivisionMapper::toDto).collect(Collectors.toList());
+        // demonstration of map method
+        // List<Integer> square = number.stream().map(x -> x*x).
+        // collect(Collectors.toList());
+        // System.out.println(square);
+
         // List<TeacherDivisionDTO> test2 =
 
-        // Page<AllTeacherListVM> dtoPage = test.map(new Converter<TeacherDivisionDTO,
-        // AllTeacherListVM>() {
-        // @Override
-        // public AllTeacherListVM convert(TeacherDivisionDTO dto) {
-        // AllTeacherListVM vm = new AllTeacherListVM();
-        // // Conversion logic
+        Page<TeacherDivisionDTO> page = teacherDivisionRepository.findAll(pageable).map(teacherDivisionMapper::toDto);
 
-        // return vm;
-        // }
-        // });
         return null;
     }
 

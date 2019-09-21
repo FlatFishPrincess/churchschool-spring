@@ -20,6 +20,9 @@ public class Division {
   @OneToMany(mappedBy = "division")
   private Set<TeacherDivision> teacherDivisions = new HashSet<>();
 
+  @ManyToOne
+  private Department department;
+
   public Long getId() {
     return id;
   }
@@ -56,6 +59,14 @@ public class Division {
   public String toString() {
     return "Division [description=" + description + ", id=" + id + ", name=" + name + ", teacherDivisions="
         + teacherDivisions + "]";
+  }
+
+  public Department getDepartment() {
+    return department;
+  }
+
+  public void setDepartment(Department department) {
+    this.department = department;
   }
 
 }

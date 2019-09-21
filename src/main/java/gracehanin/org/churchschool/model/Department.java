@@ -8,7 +8,7 @@ import gracehanin.org.churchschool.model.enumeration.Room;
 
 @Entity
 public class Department {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
@@ -22,8 +22,11 @@ public class Department {
   @ManyToOne
   private Ministry ministry;
 
+  // @OneToMany(mappedBy = "department")
+  // private Set<PastorDepartment> pastorDepartments = new HashSet<>();
+
   @OneToMany(mappedBy = "department")
-  private Set<PastorDepartment> pastorDepartments = new HashSet<>();
+  private Set<Division> divisions = new HashSet<>();
 
   public Long getId() {
     return id;
@@ -57,18 +60,25 @@ public class Department {
     this.ministry = ministry;
   }
 
-  public Set<PastorDepartment> getPastorDepartments() {
-    return pastorDepartments;
-  }
+  // public Set<PastorDepartment> getPastorDepartments() {
+  // return pastorDepartments;
+  // }
 
-  public void setPastorDepartments(Set<PastorDepartment> pastorDepartments) {
-    this.pastorDepartments = pastorDepartments;
-  }
+  // public void setPastorDepartments(Set<PastorDepartment> pastorDepartments) {
+  // this.pastorDepartments = pastorDepartments;
+  // }
 
   @Override
   public String toString() {
-    return "Department [id=" + id + ", ministry=" + ministry + ", name=" + name + ", pastorDepartments="
-        + pastorDepartments + ", room=" + room + "]";
+    return "Department [id=" + id + ", ministry=" + ministry + ", name=" + name + ",room=" + room + "]";
+  }
+
+  public Set<Division> getDivisions() {
+    return divisions;
+  }
+
+  public void setDivisions(Set<Division> divisions) {
+    this.divisions = divisions;
   }
 
 }

@@ -3,6 +3,8 @@ package gracehanin.org.churchschool.service.mapper;
 import gracehanin.org.churchschool.model.TeacherDivision;
 import gracehanin.org.churchschool.service.dto.TeacherDivisionDTO;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -21,4 +23,7 @@ public interface TeacherDivisionMapper extends EntityMapper<TeacherDivisionDTO, 
   @Mapping(source = "personId", target = "teacher.personId")
   TeacherDivision toEntity(TeacherDivisionDTO teacherDivisionDTO);
 
+  List<TeacherDivision> toEntity(List<TeacherDivisionDTO> dtoList);
+
+  List<TeacherDivisionDTO> toDto(List<TeacherDivision> entityList);
 }

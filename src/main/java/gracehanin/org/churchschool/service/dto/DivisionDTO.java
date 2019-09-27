@@ -11,6 +11,10 @@ public class DivisionDTO {
 
   private String description;
 
+  private Long departmentId;
+
+  private String departmentName;
+
   public Long getId() {
     return id;
   }
@@ -35,9 +39,26 @@ public class DivisionDTO {
     this.description = description;
   }
 
+  public Long getDepartmentId() {
+    return departmentId;
+  }
+
+  public void setDepartmentId(Long departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getDepartmentName() {
+    return departmentName;
+  }
+
+  public void setDepartmentName(String departmentName) {
+    this.departmentName = departmentName;
+  }
+
   @Override
   public String toString() {
-    return "DivisionDTO [description=" + description + ", id=" + id + ", name=" + name + "]";
+    return "DivisionDTO [departmentId=" + departmentId + ", departmentName=" + departmentName + ", description="
+        + description + ", id=" + id + ", name=" + name + "]";
   }
 
 }

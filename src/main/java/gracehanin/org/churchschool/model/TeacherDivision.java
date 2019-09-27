@@ -24,8 +24,8 @@ public class TeacherDivision {
   @ManyToOne
   private Division division;
 
-  @ManyToOne
-  private Term term;
+  // @ManyToOne
+  // private Term term;
 
   private TeacherType teacherType;
 
@@ -50,13 +50,13 @@ public class TeacherDivision {
     this.teacher = teacher;
   }
 
-  public Term getTerm() {
-    return term;
-  }
+  // public Term getTerm() {
+  // return term;
+  // }
 
-  public void setTerm(Term term) {
-    this.term = term;
-  }
+  // public void setTerm(Term term) {
+  // this.term = term;
+  // }
 
   public LocalDate getStartDate() {
     return startDate;
@@ -101,8 +101,7 @@ public class TeacherDivision {
   @Override
   public String toString() {
     return "TeacherDivision [attendances=" + attendances + ", division=" + division + ", endDate=" + endDate + ", id="
-        + id + ", startDate=" + startDate + ", teacher=" + teacher + ", teacherType=" + teacherType + ", term=" + term
-        + "]";
+        + id + ", startDate=" + startDate + ", teacher=" + teacher + ", teacherType=" + teacherType + ", term=" + "]";
   }
 
 }

@@ -22,6 +22,17 @@ public class AllTeacherListVM extends TeacherDivisionDTO {
     // Empty constructor needed for Jackson..?what?
   }
 
+  public AllTeacherListVM(TeacherDivisionDTO teacherDivisionDTO) {
+    this.setId(teacherDivisionDTO.getId());
+    this.setTeacherId(teacherDivisionDTO.getTeacherId());
+    this.setPersonId(teacherDivisionDTO.getPersonId());
+    this.setTeacherType(teacherDivisionDTO.getTeacherType());
+    this.setStartDate(teacherDivisionDTO.getStartDate());
+    this.setEndDate(teacherDivisionDTO.getEndDate());
+    this.setDivisionId(teacherDivisionDTO.getDivisionId());
+    this.setDivisionName(teacherDivisionDTO.getDivisionName());
+  }
+
   public String getDepartmentName() {
     return departmentName;
   }

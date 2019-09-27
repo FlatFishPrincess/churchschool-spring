@@ -8,7 +8,7 @@ import gracehanin.org.churchschool.model.enumeration.Room;
 
 @Entity
 public class Department {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
@@ -24,6 +24,9 @@ public class Department {
 
   @OneToMany(mappedBy = "department")
   private Set<PastorDepartment> pastorDepartments = new HashSet<>();
+
+  @OneToMany(mappedBy = "department")
+  private Set<Division> divisoins = new HashSet<>();
 
   public Long getId() {
     return id;
@@ -65,10 +68,17 @@ public class Department {
     this.pastorDepartments = pastorDepartments;
   }
 
-  @Override
-  public String toString() {
-    return "Department [id=" + id + ", ministry=" + ministry + ", name=" + name + ", pastorDepartments="
-        + pastorDepartments + ", room=" + room + "]";
+  public Set<Division> getDivisoins() {
+    return divisoins;
   }
 
+  public void setDivisoins(Set<Division> divisoins) {
+    this.divisoins = divisoins;
+  }
+
+  @Override
+  public String toString() {
+    return "Department [divisoins=" + divisoins + ", id=" + id + ", ministry=" + ministry + ", name=" + name
+        + ", pastorDepartments=" + pastorDepartments + ", room=" + room + "]";
+  }
 }

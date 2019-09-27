@@ -1,5 +1,6 @@
 package gracehanin.org.churchschool.web;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -42,6 +43,13 @@ public class TeacherDivisionResource {
       @RequestParam MultiValueMap<String, String> queryParams, UriComponentsBuilder uriBuilder) {
     Page<TeacherDivisionDTO> page = teacherDivisionService.findAll(pageable);
     return page;
+  }
+
+  @GetMapping("/teacher-divisions/list")
+  public List<AllTeacherListVM> getList(Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams,
+      UriComponentsBuilder uriBuilder) {
+    List<AllTeacherListVM> list = teacherDivisionService.findAllTest(pageable);
+    return list;
   }
 
   @PostMapping("/teacher-divisions")

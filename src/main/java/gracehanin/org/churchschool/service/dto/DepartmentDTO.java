@@ -10,18 +10,25 @@ import gracehanin.org.churchschool.model.enumeration.Room;
  */
 public class DepartmentDTO {
 
-  private long id;
+  private Long id;
+
   private String name;
+
   private Room room;
+
   private Long ministryId;
+
   private String ministryName;
+
   private Set<PastorDepartment> pastorDepartments;
 
-  public long getId() {
+  private Set<DivisionDTO> divisions;
+
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -65,11 +72,17 @@ public class DepartmentDTO {
     this.pastorDepartments = pastorDepartments;
   }
 
-  @Override
-  public String toString() {
-    return "DepartmentDTO [id=" + id + ", ministryId=" + ministryId + ", ministryName=" + ministryName + ", name="
-        + name + ", pastorDepartments=" + pastorDepartments + ", room=" + room + "]";
+  public Set<DivisionDTO> getDivisions() {
+    return divisions;
   }
 
-  
+  public void setDivisions(Set<DivisionDTO> divisions) {
+    this.divisions = divisions;
+  }
+
+  @Override
+  public String toString() {
+    return "DepartmentDTO [divisions=" + divisions + ", id=" + id + ", ministryId=" + ministryId + ", ministryName="
+        + ministryName + ", name=" + name + ", pastorDepartments=" + pastorDepartments + ", room=" + room + "]";
+  }
 }

@@ -13,7 +13,6 @@ import gracehanin.org.churchschool.model.Teacher;
 import gracehanin.org.churchschool.repository.TeacherRepository;
 import gracehanin.org.churchschool.service.dto.TeacherDTO;
 import gracehanin.org.churchschool.service.mapper.TeacherMapper;
-import gracehanin.org.churchschool.web.vm.AllTeacherListVM;
 
 @Service
 public class TeacherService {

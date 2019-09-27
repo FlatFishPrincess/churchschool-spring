@@ -12,9 +12,7 @@ public class AllTeacherListVM extends TeacherDivisionDTO {
 
   private String ministryName;
 
-  private int numberOfStudents;
-
-  private String className;
+  private Long numberOfStudents;
 
   private String personId;
 
@@ -49,33 +47,27 @@ public class AllTeacherListVM extends TeacherDivisionDTO {
     this.ministryName = ministryName;
   }
 
-  public int getNumberOfStudents() {
+  public Long getNumberOfStudents() {
     return numberOfStudents;
   }
 
-  public void setNumberOfStudents(int numberOfStudents) {
+  public void setNumberOfStudents(Long numberOfStudents) {
     this.numberOfStudents = numberOfStudents;
   }
 
-  public String getClassName() {
-    return className;
-  }
-
-  public void setClassName(String className) {
-    this.className = className;
-  }
-
+  @Override
   public String getPersonId() {
     return personId;
   }
 
+  @Override
   public void setPersonId(String personId) {
     this.personId = personId;
   }
 
   @Override
   public String toString() {
-    return "AllTeacherListVM [className=" + className + ", departmentName=" + departmentName + ", ministryName="
+    return "AllTeacherListVM [departmentName=" + departmentName + ", ministryName="
         + ministryName + ", numberOfStudents=" + numberOfStudents + ", personId=" + personId + "]";
   }
 

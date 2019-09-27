@@ -1,9 +1,9 @@
 package gracehanin.org.churchschool.web;
 
-import java.util.List;
-import java.util.NoSuchElementException;
+import gracehanin.org.churchschool.service.TeacherDivisionService;
+import gracehanin.org.churchschool.service.dto.TeacherDivisionDTO;
+import gracehanin.org.churchschool.web.vm.AllTeacherListVM;
 import java.util.Optional;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -20,9 +20,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import gracehanin.org.churchschool.service.TeacherDivisionService;
-import gracehanin.org.churchschool.service.dto.TeacherDivisionDTO;
-import gracehanin.org.churchschool.web.vm.AllTeacherListVM;
+
 
 /**
  * Teacher Resource
@@ -46,10 +44,10 @@ public class TeacherDivisionResource {
   }
 
   @GetMapping("/teacher-divisions/list")
-  public List<AllTeacherListVM> getList(Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams,
+  public Page<AllTeacherListVM> getList(Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams,
       UriComponentsBuilder uriBuilder) {
-    List<AllTeacherListVM> list = teacherDivisionService.findAllTest(pageable);
-    return list;
+    Page<AllTeacherListVM> page = teacherDivisionService.findAllTest(pageable);
+    return page;
   }
 
   @PostMapping("/teacher-divisions")

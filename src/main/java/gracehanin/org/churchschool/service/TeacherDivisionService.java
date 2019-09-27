@@ -1,30 +1,27 @@
 package gracehanin.org.churchschool.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import gracehanin.org.churchschool.model.Department;
-import gracehanin.org.churchschool.model.Division;
 import gracehanin.org.churchschool.model.TeacherDivision;
 import gracehanin.org.churchschool.repository.DepartmentRepository;
 import gracehanin.org.churchschool.repository.DivisionRepository;
 import gracehanin.org.churchschool.repository.TeacherDivisionRepository;
 import gracehanin.org.churchschool.repository.TeacherRepository;
+import gracehanin.org.churchschool.service.dto.DepartmentDTO;
 import gracehanin.org.churchschool.service.dto.DivisionDTO;
 import gracehanin.org.churchschool.service.dto.TeacherDivisionDTO;
-import gracehanin.org.churchschool.service.dto.DepartmentDTO;
 import gracehanin.org.churchschool.service.mapper.DepartmentMapper;
 import gracehanin.org.churchschool.service.mapper.DivisionMapper;
 import gracehanin.org.churchschool.service.mapper.TeacherDivisionMapper;
 import gracehanin.org.churchschool.web.vm.AllTeacherListVM;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TeacherDivisionService {
@@ -58,8 +55,8 @@ public class TeacherDivisionService {
         return teacherDivisionRepository.findAll(pageable).map(teacherDivisionMapper::toDto);
     }
 
-    // @Transactional(readOnly = true)
-    public List<AllTeacherListVM> findAllTest(Pageable pageable) {
+    @Transactional(readOnly = true)
+    public Page<AllTeacherListVM> findAllTest(Pageable pageable) {
         System.out.println("---------find all teacher list view model triggered---------");
         Page<TeacherDivisionDTO> teacherDivisions = teacherDivisionRepository.findAll(pageable)
                 .map(teacherDivisionMapper::toDto);
@@ -67,12 +64,19 @@ public class TeacherDivisionService {
         teacherDivisions.forEach(td -> {
             AllTeacherListVM tVm = new AllTeacherListVM(td);
             DivisionDTO divisionDTO = divisionMapper.toDto(divisionRepository.getOne(tVm.getDivisionId()));
-            Department department = departmentRepository.getOne(divisionDTO.getDepartmentId());
-            DepartmentDTO departmentDTO = departmentMapper.toDto(department);
+            DepartmentDTO departmentDTO = departmentMapper
+                    .toDto(departmentRepository.getOne(divisionDTO.getDepartmentId()));
             tVm.setDepartmentName(departmentDTO.getName());
+            tVm.setMinistryName(departmentDTO.getMinistryName());
+            tVm.setNumberOfStudents(teacherDivisionRepository.count());
             teacherListView.add(tVm);
         });
-        return teacherListView;
+        int start = (int) pageable.getOffset();
+        int end = (start + pageable.getPageSize()) > teacherListView.size() ? teacherListView.size()
+                : (start + pageable.getPageSize());
+        Page<AllTeacherListVM> teacherListViewPage = new PageImpl<AllTeacherListVM>(teacherListView.subList(start, end), pageable,
+                teacherListView.size());
+        return teacherListViewPage;
     }
 
     public TeacherDivisionDTO save(TeacherDivisionDTO teacherDivisionDTO) {

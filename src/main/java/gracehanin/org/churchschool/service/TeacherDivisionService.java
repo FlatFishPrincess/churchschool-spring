@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import gracehanin.org.churchschool.model.Department;
-
+import gracehanin.org.churchschool.model.Division;
 import gracehanin.org.churchschool.model.TeacherDivision;
 import gracehanin.org.churchschool.repository.DepartmentRepository;
 import gracehanin.org.churchschool.repository.DivisionRepository;
@@ -41,13 +41,15 @@ public class TeacherDivisionService {
 
     public TeacherDivisionService(TeacherDivisionRepository teacherDivisionRepository,
             TeacherDivisionMapper teacherDivisionMapper, TeacherRepository teacherRepository,
-            DivisionMapper divisionMapper, DepartmentRepository departmentRepository,
-            DepartmentMapper departmentMapper) {
+            DivisionMapper divisionMapper, DepartmentRepository departmentRepository, DepartmentMapper departmentMapper,
+            DivisionRepository divisionRepository) {
         this.teacherDivisionRepository = teacherDivisionRepository;
         this.teacherRepository = teacherRepository;
         this.teacherDivisionMapper = teacherDivisionMapper;
         this.divisionMapper = divisionMapper;
         this.departmentRepository = departmentRepository;
+        this.divisionRepository = divisionRepository;
+        this.departmentMapper = departmentMapper;
     }
 
     @Transactional(readOnly = true)

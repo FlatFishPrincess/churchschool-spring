@@ -21,8 +21,9 @@ public class TeacherDivisionDTO {
 
   private LocalDate endDate;
 
-  // ----- ManyToOne Relationship -----
-  // private Long termId;
+  private Long termId;
+
+  private String termName;
 
   private Long divisionId;
 
@@ -68,13 +69,21 @@ public class TeacherDivisionDTO {
     this.endDate = endDate;
   }
 
-  // public Long getTermId() {
-  // return termId;
-  // }
+  public Long getTermId() {
+  return termId;
+  }
 
-  // public void setTermId(Long termId) {
-  // this.termId = termId;
-  // }
+  public void setTermId(Long termId) {
+  this.termId = termId;
+  }
+
+  public String getTermName() {
+    return termName;
+  }
+
+  public void setTermName(String termName) {
+    this.termName = termName;
+  }
 
   public Long getDivisionId() {
     return divisionId;
@@ -104,6 +113,6 @@ public class TeacherDivisionDTO {
   public String toString() {
     return "TeacherDivisionDTO [divisionId=" + divisionId + ", divisionName=" + divisionName + ", endDate=" + endDate
         + ", id=" + id + ", personId=" + personId + ", startDate=" + startDate + ", teacherId=" + teacherId
-        + ", teacherType=" + teacherType + "]";
+        + ", teacherType=" + teacherType + ", termId=" + termId + ", termName=" + termName + "]";
   }
 }

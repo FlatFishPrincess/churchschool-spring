@@ -23,6 +23,9 @@ public class Division {
   @ManyToOne
   private Department department;
 
+  @ManyToOne
+  private Term term;
+
   public Long getId() {
     return id;
   }
@@ -63,10 +66,17 @@ public class Division {
     this.department = department;
   }
 
+  public Term getTerm() {
+    return term;
+  }
+
+  public void setTerm(Term term) {
+    this.term = term;
+  }
+
   @Override
   public String toString() {
     return "Division [department=" + department + ", description=" + description + ", id=" + id + ", name=" + name
-        + ", teacherDivisions=" + teacherDivisions + "]";
+        + ", teacherDivisions=" + teacherDivisions + ", term=" + term + "]";
   }
-
 }

@@ -51,37 +51,10 @@ public class TeacherResource {
     return result;
   }
 
-  // @PostMapping("/teachers")
-  // @ResponseStatus(HttpStatus.CREATED)
-  // public TeacherDTO addTeacher(@RequestBody AllTeacherListVM allTeacherListVM)
-  // {
-  // TeacherDTO result = teacherService.save(allTeacherListVM);
-  // return result;
-  // }
-
   @GetMapping("/teachers/{id}")
   public Optional<TeacherDTO> getTeacherById(@PathVariable Long id) {
     Optional<TeacherDTO> tOptional = teacherService.findOne(id);
     return tOptional;
   }
-
-  // @PutMapping("/teachers/{id}")
-  // public TeacherDTO updateTeacherById(@PathVariable Long id, @RequestBody
-  // @Validated TeacherDTO teacherDto) {
-  // verifyDepartmentId(id);
-  // teacherDto.setId(id);
-  // // FIXME: ugly code@@
-  // AllTeacherListVM allTeacherListVM = new AllTeacherListVM();
-  // allTeacherListVM.setDepartmentId(id);
-  // TeacherDTO savedDto = teacherService.save(allTeacherListVM);
-  // return savedDto;
-  // }
-
-  // private void verifyDepartmentId(Long id) {
-  // Optional<TeacherDTO> tOptional = teacherService.findOne(id);
-  // if (tOptional == null) {
-  // throw new NoSuchElementException("Teacher does not exist " + id);
-  // }
-  // }
 
 }

@@ -3,6 +3,7 @@ package gracehanin.org.churchschool.web;
 import gracehanin.org.churchschool.service.TeacherDivisionService;
 import gracehanin.org.churchschool.service.dto.TeacherDivisionDTO;
 import gracehanin.org.churchschool.web.vm.AllTeacherListVM;
+// import gracehanin.org.churchschool.web.vm.TeacherDetailVM;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-
-
 
 /**
  * Teacher Resource
@@ -48,6 +47,12 @@ public class TeacherDivisionResource {
       UriComponentsBuilder uriBuilder) {
     Page<AllTeacherListVM> page = teacherDivisionService.findAllTest(pageable);
     return page;
+  }
+
+  @GetMapping("/teacher-divisions/{id}/teacherDetail")
+  public AllTeacherListVM getTeacherDetail(@PathVariable Long id) {
+
+    return null;
   }
 
   @PostMapping("/teacher-divisions")

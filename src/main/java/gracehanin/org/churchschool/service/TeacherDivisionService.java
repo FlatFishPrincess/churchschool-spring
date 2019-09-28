@@ -7,11 +7,11 @@ import gracehanin.org.churchschool.repository.TeacherDivisionRepository;
 import gracehanin.org.churchschool.repository.TeacherRepository;
 import gracehanin.org.churchschool.service.dto.DepartmentDTO;
 import gracehanin.org.churchschool.service.dto.DivisionDTO;
+import gracehanin.org.churchschool.service.dto.TeacherDTO;
 import gracehanin.org.churchschool.service.dto.TeacherDivisionDTO;
-import gracehanin.org.churchschool.service.mapper.DepartmentMapper;
-import gracehanin.org.churchschool.service.mapper.DivisionMapper;
-import gracehanin.org.churchschool.service.mapper.TeacherDivisionMapper;
+import gracehanin.org.churchschool.service.mapper.*;
 import gracehanin.org.churchschool.web.vm.AllTeacherListVM;
+// import gracehanin.org.churchschool.web.vm.TeacherDetailVM;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -28,18 +28,19 @@ public class TeacherDivisionService {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    private TeacherDivisionRepository teacherDivisionRepository;
-    private TeacherDivisionMapper teacherDivisionMapper;
-    private DivisionMapper divisionMapper;
-    private DepartmentMapper departmentMapper;
-    private TeacherRepository teacherRepository;
     private DivisionRepository divisionRepository;
     private DepartmentRepository departmentRepository;
+    private TeacherDivisionRepository teacherDivisionRepository;
+    private TeacherRepository teacherRepository;
+    private DivisionMapper divisionMapper;
+    private DepartmentMapper departmentMapper;
+    private TeacherMapper teacherMapper;
+    private TeacherDivisionMapper teacherDivisionMapper;
 
     public TeacherDivisionService(TeacherDivisionRepository teacherDivisionRepository,
             TeacherDivisionMapper teacherDivisionMapper, TeacherRepository teacherRepository,
             DivisionMapper divisionMapper, DepartmentRepository departmentRepository, DepartmentMapper departmentMapper,
-            DivisionRepository divisionRepository) {
+            DivisionRepository divisionRepository, TeacherMapper teacherMapper) {
         this.teacherDivisionRepository = teacherDivisionRepository;
         this.teacherRepository = teacherRepository;
         this.teacherDivisionMapper = teacherDivisionMapper;
@@ -47,6 +48,7 @@ public class TeacherDivisionService {
         this.departmentRepository = departmentRepository;
         this.divisionRepository = divisionRepository;
         this.departmentMapper = departmentMapper;
+        this.teacherMapper = teacherMapper;
     }
 
     @Transactional(readOnly = true)
@@ -74,10 +76,16 @@ public class TeacherDivisionService {
         int start = (int) pageable.getOffset();
         int end = (start + pageable.getPageSize()) > teacherListView.size() ? teacherListView.size()
                 : (start + pageable.getPageSize());
-        Page<AllTeacherListVM> teacherListViewPage = new PageImpl<AllTeacherListVM>(teacherListView.subList(start, end), pageable,
-                teacherListView.size());
+        Page<AllTeacherListVM> teacherListViewPage = new PageImpl<AllTeacherListVM>(teacherListView.subList(start, end),
+                pageable, teacherListView.size());
         return teacherListViewPage;
     }
+
+    // public TeacherDetailVM getTeacherDetail(Long teacherId) {
+    //     TeacherDTO teacherDTO = teacherMapper.toDto(teacherRepository.getOne(teacherId));
+
+    //     return null;
+    // }
 
     public TeacherDivisionDTO save(TeacherDivisionDTO teacherDivisionDTO) {
         System.out.println("---------teacherDivision save triggered---------");

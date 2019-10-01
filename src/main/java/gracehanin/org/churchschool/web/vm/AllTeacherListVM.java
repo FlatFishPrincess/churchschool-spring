@@ -21,6 +21,7 @@ public class AllTeacherListVM extends TeacherDivisionDTO {
   }
 
   public AllTeacherListVM(TeacherDivisionDTO teacherDivisionDTO) {
+    // FIXME: very ugly construction, need to fix it
     this.setId(teacherDivisionDTO.getId());
     this.setTeacherId(teacherDivisionDTO.getTeacherId());
     this.setPersonId(teacherDivisionDTO.getPersonId());
@@ -29,6 +30,8 @@ public class AllTeacherListVM extends TeacherDivisionDTO {
     this.setEndDate(teacherDivisionDTO.getEndDate());
     this.setDivisionId(teacherDivisionDTO.getDivisionId());
     this.setDivisionName(teacherDivisionDTO.getDivisionName());
+    this.setTermId(teacherDivisionDTO.getTermId());
+    this.setTermName(teacherDivisionDTO.getTermName());
   }
 
   public String getDepartmentName() {
